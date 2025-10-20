@@ -12,10 +12,12 @@ from pydantic import BaseModel
 app = FastAPI()
 
 # === File Paths ===
-KB_FILE = "data/KB.xlsx"
-KB_CACHE = "data/kb_with_embeddings.pkl"
-CASE_LOG_FILE = "data/Case log with feedback.xlsx"
-CASE_LOG_CACHE = "data/case_log_with_embeddings.pkl"
+# === File Paths ===
+BASE_DIR = os.path.dirname(__file__)
+KB_FILE = os.path.join(BASE_DIR, "data", "KB.xlsx")
+KB_CACHE = os.path.join(BASE_DIR, "data", "kb_with_embeddings.pkl")
+CASE_LOG_FILE = os.path.join(BASE_DIR, "data", "Case log with feedback.xlsx")
+CASE_LOG_CACHE = os.path.join(BASE_DIR, "data", "case_log_with_embeddings.pkl")
 
 # === Azure API Endpoints ===
 AZURE_URL_EMBED = "https://psacodesprint2025.azure-api.net/openai/deployments/text-embedding-3-small/embeddings?api-version=2025-01-01-preview"
@@ -155,4 +157,5 @@ TASK:
 
 if __name__ == "__main__":
     import uvicorn
+
     uvicorn.run(app, host="0.0.0.0", port=8000)
