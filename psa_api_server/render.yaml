@@ -3,5 +3,5 @@ services:
     name: psa-fastapi-service
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn psa_api_server.API_wrapped_solution_gen:app --host 0.0.0.0 --port 10000
+    startCommand: uvicorn API_wrapped_solution_gen:app --host 0.0.0.0 --port 10000
     plan: free
